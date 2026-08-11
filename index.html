@@ -148,13 +148,13 @@
       <p>예상보다 많은 분들이 찾아와 주셔서 서버 트래픽이 빠르게 늘었고, 이번 달 플랜 한도를 모두 사용했습니다.</p>
       <p>여러 방법을 찾아봤지만 지금은 추가 운영비를 낼 수 없어 서비스를 잠시 닫습니다.</p>
       <p>기존 데이터는 안전하게 보관되어 있으니 걱정하지 않으셔도 됩니다.</p>
-      <p>9월 1일에 다시 열겠습니다. 조금만 기다려 주세요.</p>
+      <p>9월 1일에 다시 열겠습니다.<br>조금만 기다려 주세요 !</p>
     </div>
     <section id="notice-copy-en" class="english" data-copy="en" lang="en" aria-label="English notice">
       <p>More people than expected visited Alliance Atlas, and the increase in traffic exhausted this month's plan limit.</p>
       <p>I looked for alternatives, but I cannot afford the additional operating costs right now, so the service will be temporarily closed.</p>
       <p>Your existing data is stored safely, so there is no need to worry.</p>
-      <p>The service will reopen on September 1. Thank you for your patience.</p>
+      <p>The service will reopen on September 1.<br>Thank you for your patience.</p>
     </section>
     <div class="date">REOPENING · 2026.09.01</div>
     <footer><a id="contact-email" href="mailto:wooseokjeon28@gmail.com">ANY ENQUIRIES</a></footer>
@@ -167,14 +167,16 @@
     const copies = document.querySelectorAll('[data-copy]');
     const contact = document.querySelector('#contact-email');
 
-    buttons.forEach((button) => button.addEventListener('click', () => {
-      const language = button.dataset.language;
+    const setLanguage = (language) => {
       document.documentElement.lang = language;
       title.textContent = titles[language];
       notice.setAttribute('aria-describedby', `notice-copy-${language}`);
-      buttons.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+      buttons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.language === language)));
       copies.forEach((copy) => { copy.hidden = copy.dataset.copy !== language; });
-    }));
+    };
+
+    buttons.forEach((button) => button.addEventListener('click', () => setLanguage(button.dataset.language)));
+    setLanguage(navigator.language.toLowerCase().startsWith('ko') ? 'ko' : 'en');
 
     contact.addEventListener('click', async (event) => {
       event.preventDefault();
