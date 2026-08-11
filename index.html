@@ -107,6 +107,16 @@
       font: 11px/1.4 "Courier New", monospace;
       text-align: right;
     }
+    footer a {
+      color: inherit;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    footer a:hover,
+    footer a:focus-visible {
+      color: #b0b7af;
+      text-decoration: underline;
+    }
     @media (max-width: 600px) {
       body { background-size: 24px 24px; }
     }
@@ -135,7 +145,7 @@
       <p>The service will reopen on September 1. Thank you for your patience.</p>
     </section>
     <div class="date">REOPENING · 2026.09.01</div>
-    <footer>ALLIANCE ATLAS</footer>
+    <footer><a id="contact-email" href="mailto:wooseokjeon28@gmail.com">ANY ENQUIRIES</a></footer>
   </main>
   <script>
     const titles = { ko: '죄송합니다.', en: "We're sorry." };
@@ -143,6 +153,7 @@
     const title = document.querySelector('#notice-title');
     const buttons = document.querySelectorAll('[data-language]');
     const copies = document.querySelectorAll('[data-copy]');
+    const contact = document.querySelector('#contact-email');
 
     buttons.forEach((button) => button.addEventListener('click', () => {
       const language = button.dataset.language;
@@ -152,6 +163,18 @@
       buttons.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
       copies.forEach((copy) => { copy.hidden = copy.dataset.copy !== language; });
     }));
+
+    contact.addEventListener('click', async (event) => {
+      event.preventDefault();
+      const email = 'wooseokjeon28@gmail.com';
+      try {
+        await navigator.clipboard.writeText(email);
+        contact.textContent = 'EMAIL COPIED';
+        setTimeout(() => { contact.textContent = 'ANY ENQUIRIES'; }, 1600);
+      } catch {
+        contact.textContent = email;
+      }
+    });
   </script>
 </body>
 </html>
