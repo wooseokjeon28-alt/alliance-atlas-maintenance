@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -46,19 +46,18 @@
       background: #f00;
     }
     h1 {
-      margin: 0;
+      margin: 22px 0 14px;
       color: #d2d8d0;
       font-size: clamp(30px, 8vw, 42px);
       font-weight: 400;
       line-height: 1.08;
       letter-spacing: -.04em;
     }
-    .title-row {
+    .top-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      margin: 22px 0 14px;
     }
     .language {
       display: flex;
@@ -111,22 +110,22 @@
   </style>
 </head>
 <body>
-  <main role="dialog" aria-labelledby="notice-title" aria-describedby="notice-copy-ko">
-    <div class="badge"><span class="dot"></span><span>SERVICE NOTICE</span></div>
-    <div class="title-row">
-      <h1 id="notice-title">죄송합니다.</h1>
+  <main role="dialog" aria-labelledby="notice-title" aria-describedby="notice-copy-en">
+    <div class="top-row">
+      <div class="badge"><span class="dot"></span><span>SERVICE NOTICE</span></div>
       <nav class="language" aria-label="Language">
-        <button type="button" data-language="ko" aria-pressed="true">KR</button>
-        <button type="button" data-language="en" aria-pressed="false">EN</button>
+        <button type="button" data-language="ko" aria-pressed="false">KR</button>
+        <button type="button" data-language="en" aria-pressed="true">EN</button>
       </nav>
     </div>
-    <div id="notice-copy-ko" data-copy="ko">
+    <h1 id="notice-title">We're sorry.</h1>
+    <div id="notice-copy-ko" data-copy="ko" hidden>
       <p>예상보다 많은 분들이 찾아와 주셔서 서버 트래픽이 빠르게 늘었고, 이번 달 플랜 한도를 모두 사용했습니다.</p>
       <p>여러 방법을 찾아봤지만 지금은 추가 운영비를 낼 수 없어 서비스를 잠시 닫습니다.</p>
       <p>기존 데이터는 안전하게 보관되어 있으니 걱정하지 않으셔도 됩니다.</p>
       <p>9월 1일에 다시 열겠습니다. 조금만 기다려 주세요.</p>
     </div>
-    <section id="notice-copy-en" class="english" data-copy="en" lang="en" aria-label="English notice" hidden>
+    <section id="notice-copy-en" class="english" data-copy="en" lang="en" aria-label="English notice">
       <p>More people than expected visited Alliance Atlas, and the increase in traffic exhausted this month's plan limit.</p>
       <p>I looked for alternatives, but I cannot afford the additional operating costs right now, so the service will be temporarily closed.</p>
       <p>Your existing data is stored safely, so there is no need to worry.</p>
