@@ -7,10 +7,12 @@
   <title>Alliance Atlas · Service Notice</title>
   <style>
     * { box-sizing: border-box; }
-    html, body { min-height: 100%; margin: 0; }
+    html, body { margin: 0; }
     body {
       display: grid;
       place-items: center;
+      min-height: 100vh;
+      min-height: 100dvh;
       padding: 20px;
       background:
         linear-gradient(rgba(176, 183, 175, .035) 1px, transparent 1px),
@@ -59,6 +61,19 @@
       word-break: keep-all;
     }
     p + p { margin-top: 12px; }
+    .english {
+      margin-top: 22px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(176, 183, 175, .22);
+      font-family: "Courier New", monospace;
+    }
+    .english h2 {
+      margin: 0 0 12px;
+      color: #d2d8d0;
+      font-size: 20px;
+      font-weight: 400;
+    }
+    .english p { font-size: 12px; line-height: 1.6; }
     .date {
       margin-top: 22px;
       padding: 12px 14px;
@@ -83,9 +98,17 @@
     <h1 id="notice-title">죄송합니다.</h1>
     <div id="notice-copy">
       <p>예상보다 많은 분들이 찾아와 주셔서 서버 트래픽이 빠르게 늘었고, 이번 달 플랜 한도를 모두 사용했습니다.</p>
-      <p>여러 방법을 찾아봤지만 지금은 추가 운영비를 마련하기 어려워 서비스를 잠시 닫습니다.</p>
+      <p>여러 방법을 찾아봤지만 지금은 추가 운영비를 낼 수 없어 서비스를 잠시 닫습니다.</p>
+      <p>기존 데이터는 안전하게 보관되어 있으니 걱정하지 않으셔도 됩니다.</p>
       <p>9월 1일에 다시 열겠습니다. 조금만 기다려 주세요. 불편을 드려 정말 죄송합니다.</p>
     </div>
+    <section class="english" lang="en" aria-label="English notice">
+      <h2>We're sorry.</h2>
+      <p>More people than expected visited Alliance Atlas, and the increase in traffic exhausted this month's plan limit.</p>
+      <p>I looked for alternatives, but I cannot afford the additional operating costs right now, so the service will be temporarily closed.</p>
+      <p>Your existing data is stored safely, so there is no need to worry.</p>
+      <p>The service will reopen on September 1. Thank you for your patience. I am truly sorry for the inconvenience.</p>
+    </section>
     <div class="date">REOPENING · 2026.09.01</div>
     <footer>ALLIANCE ATLAS</footer>
   </main>
