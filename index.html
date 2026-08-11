@@ -123,6 +123,12 @@
       border-color: #b0b7af;
       background: #b0b7af;
     }
+    footer a.copied {
+      border-color: #4ade80;
+      background: rgba(74, 222, 128, .16);
+      color: #bbf7d0;
+      box-shadow: 0 0 0 2px rgba(74, 222, 128, .18);
+    }
     @media (max-width: 600px) {
       body { background-size: 24px 24px; }
     }
@@ -154,7 +160,7 @@
     <footer><a id="contact-email" href="mailto:wooseokjeon28@gmail.com">ANY ENQUIRIES</a></footer>
   </main>
   <script>
-    const titles = { ko: '죄송합니다.', en: "We're sorry." };
+    const titles = { ko: '서비스 안내', en: "We're sorry." };
     const notice = document.querySelector('main');
     const title = document.querySelector('#notice-title');
     const buttons = document.querySelectorAll('[data-language]');
@@ -175,8 +181,12 @@
       const email = 'wooseokjeon28@gmail.com';
       try {
         await navigator.clipboard.writeText(email);
-        contact.textContent = 'EMAIL COPIED';
-        setTimeout(() => { contact.textContent = 'ANY ENQUIRIES'; }, 1600);
+        contact.textContent = 'EMAIL COPIED TO CLIPBOARD ✓';
+        contact.classList.add('copied');
+        setTimeout(() => {
+          contact.textContent = 'ANY ENQUIRIES';
+          contact.classList.remove('copied');
+        }, 1600);
       } catch {
         contact.textContent = email;
       }
